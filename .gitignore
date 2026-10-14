@@ -1,0 +1,13 @@
+# Dependencias
+node_modules/
+
+# Caché y configuración local de Wrangler
+.wrangler/
+.dev.vars
+
+# Logs locales
+*.log
+
+# SO
+.DS_Store
+Thumbs.db

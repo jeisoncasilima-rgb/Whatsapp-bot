@@ -1,0 +1,29 @@
+name = "junior-salud-bot"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Logs persistentes en el dashboard de Cloudflare
+[observability]
+enabled = true
+
+# ═══════════════════════════════════════════════════════════
+#  D1: base de datos del bot (sesiones y solicitudes)
+#  Consistencia en tiempo real (sin caché → sin repeticiones)
+# ═══════════════════════════════════════════════════════════
+[[d1_databases]]
+binding = "DB"
+database_name = "junior_salud_db"
+database_id = "af9644ba-c034-41d5-9f6e-395d252db90b"
+
+# ═══════════════════════════════════════════════════════════
+#  Variables de configuración (NO secretas)
+# ═══════════════════════════════════════════════════════════
+[vars]
+PHONE_NUMBER_ID = "TU_PHONE_NUMBER_ID"  # Lo obtienes en Meta for Developers → WhatsApp → Configuración de la API
+ASESOR_NUMBER = "573XXXXXXXXX"        # Número de la asesora (formato: 57 + número sin espacios)
+
+# ═══════════════════════════════════════════════════════════
+#  Secretos (se configuran con wrangler, NUNCA en este archivo):
+#    wrangler secret put WHATSAPP_TOKEN
+#    wrangler secret put VERIFY_TOKEN
+# ═══════════════════════════════════════════════════════════
